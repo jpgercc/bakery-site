@@ -15,6 +15,7 @@ Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comp
 
 - [ ] Trocar a foto 'Experiencia Bocatto' (.TEMP/CONTEXTO-CLIENTE/*foto não recebida)
 
+- [x] Adicionar descrição das tortas !!! Ver no novo cardapio que a mano mandou  (/assets/images/tortas/CATALOGO TORTAS)(produtos)
 
 - [X] Colocar algo sobre aniversario de 40 anos da Bocatto, 40 anos de historia(index#sobrenos)
 
@@ -26,11 +27,12 @@ Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comp
 
 - [x] Tirar gelatto do menu  (produtos)
 
-- [ ] Adicionar restante das tortas do novo cardapio que a mano mandou  (/assets/images/tortas/CATALOGO TORTAS), fotos das tortas no whats da Manô (produtos)
+- [x] Adicionar restante das tortas do novo cardapio que a mano mandou  (/assets/images/tortas/CATALOGO TORTAS), fotos das tortas no whats da Manô (produtos)
 
 
 - [x] Retirar valores e quantidades(unidades e gramas) dos produtos (produtos)
 
+- [x] Apos adicionar tudos produtos, organizar melhor as pastas(produtos)
 <h2>A FAZER (Finalização)</h2>
 
 - [ ] 1o Terminar o site 100%
