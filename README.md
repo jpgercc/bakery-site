@@ -13,6 +13,8 @@ Desde sua fundação, a Bocatto segue sendo um negócio familiar, guiado pelos m
 Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comprometidos em oferecer experiências que unem sabor, elegância e acolhimento — criando memórias que permanecem.
 </details> 
 
+- [ ] Trocar a foto 'Experiencia Bocatto' (.TEMP/CONTEXTO-CLIENTE/)
+
 
 - [ ] Colocar algo sobre aniversario de 40 anos da Bocatto, 40 anos de historia(index#sobrenos)
 
@@ -24,7 +26,7 @@ Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comp
 
 - [ ] Tirar gelatto do menu  (produtos)
 
-- [ ] Adicionar restante das tortas do novo cardapio que a mano mandou  (produtos)
+- [ ] Adicionar restante das tortas do novo cardapio que a mano mandou  (.TEMP/CONTEXTO-CLIENTE/Catálogo BOCATTO 2025 NEW) (produtos)
 
 - [ ] Retirar valores dos produtos (produtos)
 
