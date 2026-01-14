@@ -7,11 +7,11 @@ Verdadeiro index está na pasta .TEMP
 
 <h2>A FAZER (Sprint)</h2>
 
-- [ ] Trocar texto 'Experiencia Bocatto por: <details> <summary>Novo texto</summary>
+- [ ] Trocar texto 'Experiencia Bocatto por: <details> <summary>Novo texto (index)</summary>
 Mais que uma confeitaria, a Bocatto é tradição, afeto e excelência. Em 2026, celebramos 40 anos de história, marcados pela presença constante na vida e nos momentos mais especiais de nossos clientes — datas comemorativas, encontros memoráveis e celebrações que atravessam gerações.
 Desde sua fundação, a Bocatto segue sendo um negócio familiar, guiado pelos mesmos valores que a originaram: cuidado artesanal, atenção aos detalhes, qualidade irrepreensível e requinte em cada criação. Ao longo dos anos, mantivemos viva nossa essência, ao mesmo tempo em que evoluímos, nos modernizamos e incorporamos novas formas de encantar, sempre com respeito à nossa identidade.
 Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comprometidos em oferecer experiências que unem sabor, elegância e acolhimento — criando memórias que permanecem.
-</details> (index)
+</details> 
 
 
 - [ ] Colocar algo sobre aniversario de 40 anos da Bocatto, 40 anos de historia(index#sobrenos)
