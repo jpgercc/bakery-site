@@ -18,7 +18,7 @@ Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comp
 
 - [X] Colocar algo sobre aniversario de 40 anos da Bocatto, 40 anos de historia(index#sobrenos)
 
-- [ ] Trocar “Desde 1986, …” por “Tradição e bom gosto desde 1986” (index)
+- [x] Trocar “Desde 1986, …” por “Tradição e bom gosto desde 1986” (index)
 
 - [ ] Tirar section 'o que esperar' da aba (eventos)
 
