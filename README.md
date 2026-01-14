@@ -14,6 +14,7 @@ Verdadeiro index está na pasta .TEMP
 
 - [ ] Tirar section 'o que esperar' da aba (eventos)
 
+<br>
 
 - [ ] Tirar gelatto do menu  (produtos)
 
