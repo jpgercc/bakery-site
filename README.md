@@ -26,7 +26,8 @@ Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comp
 
 - [x] Tirar gelatto do menu  (produtos)
 
-- [ ] Adicionar restante das tortas do novo cardapio que a mano mandou  (.TEMP/CONTEXTO-CLIENTE/Catálogo BOCATTO 2025 NEW) (produtos)
+- [ ] Adicionar restante das tortas do novo cardapio que a mano mandou  (/assets/images/tortas/CATALOGO TORTAS), fotos das tortas no whats da Manô (produtos)
+
 
 - [ ] Retirar valores dos produtos (produtos)
 
