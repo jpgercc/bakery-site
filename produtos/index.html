@@ -77,8 +77,8 @@
             
             <div class="cart-footer" id="cartFooter">
                 <div class="cart-total">
-                    <span>Total Estimado:</span>
-                    <span id="cartTotalPrice">R$ 0,00</span>
+                    <span>Total de Itens:</span>
+                    <span id="cartTotalPrice">0 itens</span>
                 </div>
                 <button class="cart-checkout-btn" onclick="finalizarCompra()">
                     FINALIZAR COMPRA
@@ -122,11 +122,6 @@
                 <button class="produtos-filter-btn" data-filter="tortas" onclick="filterByCategory('tortas')">
                     TORTAS
                 </button>
-                <!--
-                <button class="produtos-filter-btn" data-filter="gelatos" onclick="filterByCategory('gelatos')">
-                    GELATOS
-                </button>
-                -->
                 <button class="produtos-filter-btn" data-filter="salgados" onclick="filterByCategory('salgados')">
                     SALGADOS
                 </button>
@@ -142,263 +137,193 @@
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/alfahorcordobes.png" alt="Alfahor Cordobês">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Alfahor Cordobês", 85.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Alfahor Cordobês", "Camadas delicadas de chocolate puro belga com ganache cremosa e cobertura irresistível.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Alfahor Cordobês</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Camadas delicadas de chocolate puro belga com ganache cremosa e cobertura irresistível.</p>
-                    <p class="produtos-card-price">R$ 85,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Alpina">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/alpina.png" alt="Alpina">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Alpina", 78.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Alpina", "Clássica combinação de bolo terciopelo com cobertura de cream cheese artesanal.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Alpina</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Clássica combinação de bolo terciopelo com cobertura de cream cheese artesanal.</p>
-                    <p class="produtos-card-price">R$ 78,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Bahiana">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/bahiana.png" alt="Bahiana">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Bahiana", 82.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Bahiana", "Torta leve com calda de frutas silvestres frescas e cobertura de açúcar cristal.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Bahiana</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Torta leve com calda de frutas silvestres frescas e cobertura de açúcar cristal.</p>
-                    <p class="produtos-card-price">R$ 82,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Chajá de Morango">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/chajademorango.png" alt="Chajá de Morango">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Chajá de Morango", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Chajá de Morango", "Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Chajá de Morango</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Kitkat">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/kitkat.png" alt="Kitkat">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Kitkat", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Kitkat", "Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Kitkat</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Kitty">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/kitty.png" alt="Kitty">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Kitty", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Kitty", "Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Kitty</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Laka">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/laka.png" alt="Laka">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Laka", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Laka", "Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Laka</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Marta Rocha">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/martarocha.png" alt="Marta Rocha">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Marta Rocha", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Marta Rocha", "Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Marta Rocha</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Negrinho e Branquinho">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/negrinhoebranquinhos.png" alt="Negrinho e Branquinho">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Negrinho e Branquinho", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Negrinho e Branquinho", "Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Negrinho e Branquinho</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Novatta">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/novatta.png" alt="Novatta">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Novatta", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Novatta", "Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Novatta</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Pecatto">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/pecatto.png" alt="Pecatto">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Pecatto", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Pecatto", "Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Pecatto</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="tortas" data-name="Rafa">
                     <div class="produtos-card-image">
                         <img src="/assets/images/tortas/rafa.png" alt="Rafa">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Rafa", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Rafa", "Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Rafa</h3>
                     <p class="produtos-card-category">Tortas</p>
                     <p class="produtos-card-description">Sobremesa italiana autêntica com camadas de biscoito e creme mascarpone mastigado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
                 </div>
-                <!-- Gelatos -->
-                <!--
-                <div class="produtos-card" data-category="gelatos" data-name="Gelato Pistachio Premium">
-                    <div class="produtos-card-image">
-                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=90" alt="Gelato Pistachio Premium">
-                        <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Gelato Pistachio Premium", 95.00, "kg")'>ADICIONAR AO CARRINHO</button>
-                        </div>
-                    </div>
-                    <h3>Gelato Pistachio Premium</h3>
-                    <p class="produtos-card-category">Gelatos</p>
-                    <p class="produtos-card-description">Gelato cremoso feito com pistache siciliano autêntico e ingredientes naturais.</p>
-                    <p class="produtos-card-price">R$ 95,00 kg</p>
-                </div>
-
-                <div class="produtos-card" data-category="gelatos" data-name="Gelato Chocolate 70%">
-                    <div class="produtos-card-image">
-                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=90" alt="Gelato Chocolate 70%">
-                        <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Gelato Chocolate 70%", 92.00, "kg")'>ADICIONAR AO CARRINHO</button>
-                        </div>
-                    </div>
-                    <h3>Gelato Chocolate 70%</h3>
-                    <p class="produtos-card-category">Gelatos</p>
-                    <p class="produtos-card-description">Intenso e sofisticado com chocolate belga de alta qualidade e textura aveludada.</p>
-                    <p class="produtos-card-price">R$ 92,00 kg</p>
-                </div>
-
-                <div class="produtos-card" data-category="gelatos" data-name="Gelato Frutas Vermelhas">
-                    <div class="produtos-card-image">
-                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=90" alt="Gelato Frutas Vermelhas">
-                        <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Gelato Frutas Vermelhas", 88.00, "kg")'>ADICIONAR AO CARRINHO</button>
-                        </div>
-                    </div>
-                    <h3>Gelato Frutas Vermelhas</h3>
-                    <p class="produtos-card-category">Gelatos</p>
-                    <p class="produtos-card-description">Refrescante mistura de frutas silvestres frescas com sabor natural e equilibrado.</p>
-                    <p class="produtos-card-price">R$ 88,00 kg</p>
-                </div>
-
-                <div class="produtos-card" data-category="gelatos" data-name="Gelato Creme Brulee">
-                    <div class="produtos-card-image">
-                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=90" alt="Gelato Creme Brulee">
-                        <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Gelato Creme Brulee", 98.00, "kg")'>ADICIONAR AO CARRINHO</button>
-                        </div>
-                    </div>
-                    <h3>Gelato Creme Brulee</h3>
-                    <p class="produtos-card-category">Gelatos</p>
-                    <p class="produtos-card-description">Sabor sofisticado inspirado no clássico francês com toque caramelizado delicado.</p>
-                    <p class="produtos-card-price">R$ 98,00 kg</p>
-                </div>
-                -->
 
                 <!-- Salgados -->
                 <div class="produtos-card" data-category="salgados" data-name="Pastel de Queijo">
                     <div class="produtos-card-image">
                         <img src="https://images.unsplash.com/photo-1599599810694-b5ac4dd67baf?w=400&q=90" alt="Pastel de Queijo">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Pastel de Queijo", 65.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Pastel de Queijo", "Massa crocante recheada com queijo meia cura derretido e temperos especiais.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Pastel de Queijo</h3>
                     <p class="produtos-card-category">Salgados</p>
                     <p class="produtos-card-description">Massa crocante recheada com queijo meia cura derretido e temperos especiais.</p>
-                    <p class="produtos-card-price">R$ 65,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="salgados" data-name="Coxinha de Frango">
                     <div class="produtos-card-image">
                         <img src="https://images.unsplash.com/photo-1599599810694-b5ac4dd67baf?w=400&q=90" alt="Coxinha de Frango">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Coxinha de Frango", 58.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Coxinha de Frango", "Clássico salgado com frango desfiado, catupiry e massa macia e saborosa.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Coxinha de Frango</h3>
                     <p class="produtos-card-category">Salgados</p>
                     <p class="produtos-card-description">Clássico salgado com frango desfiado, catupiry e massa macia e saborosa.</p>
-                    <p class="produtos-card-price">R$ 58,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="salgados" data-name="Pão de Queijo Artesanal">
                     <div class="produtos-card-image">
                         <img src="https://images.unsplash.com/photo-1599599810694-b5ac4dd67baf?w=400&q=90" alt="Pão de Queijo Artesanal">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Pão de Queijo Artesanal", 62.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Pão de Queijo Artesanal", "Receita mineira tradicional com queijo meia cura e textura fofa por dentro.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Pão de Queijo Artesanal</h3>
                     <p class="produtos-card-category">Salgados</p>
                     <p class="produtos-card-description">Receita mineira tradicional com queijo meia cura e textura fofa por dentro.</p>
-                    <p class="produtos-card-price">R$ 62,00 kg</p>
                 </div>
 
                 <div class="produtos-card" data-category="salgados" data-name="Empada de Palmito">
                     <div class="produtos-card-image">
                         <img src="https://images.unsplash.com/photo-1599599810694-b5ac4dd67baf?w=400&q=90" alt="Empada de Palmito">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Empada de Palmito", 70.00, "kg")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Empada de Palmito", "Salgado sofisticado com palmito fresco, queijo e temperos na massa manteiguda.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Empada de Palmito</h3>
                     <p class="produtos-card-category">Salgados</p>
                     <p class="produtos-card-description">Salgado sofisticado com palmito fresco, queijo e temperos na massa manteiguda.</p>
-                    <p class="produtos-card-price">R$ 70,00 kg</p>
                 </div>
 
                 <!-- Kits -->
@@ -406,52 +331,48 @@
                     <div class="produtos-card-image">
                         <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=90" alt="Kit Festa Pequena">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Kit Festa Pequena", 450.00, "unidade")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Kit Festa Pequena", "Seleção ideal para 15-20 pessoas com variedade de salgados e doces sortidos.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Kit Festa Pequena</h3>
                     <p class="produtos-card-category">Kits</p>
                     <p class="produtos-card-description">Seleção ideal para 15-20 pessoas com variedade de salgados e doces sortidos.</p>
-                    <p class="produtos-card-price">R$ 450,00</p>
                 </div>
 
                 <div class="produtos-card" data-category="kits" data-name="Kit Festa Media">
                     <div class="produtos-card-image">
                         <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=90" alt="Kit Festa Media">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Kit Festa Média", 850.00, "unidade")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Kit Festa Média", "Completo para 30-40 pessoas com diversas opções de salgados, doces e torta.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Kit Festa Média</h3>
                     <p class="produtos-card-category">Kits</p>
                     <p class="produtos-card-description">Completo para 30-40 pessoas com diversas opções de salgados, doces e torta.</p>
-                    <p class="produtos-card-price">R$ 850,00</p>
                 </div>
 
                 <div class="produtos-card" data-category="kits" data-name="Cento de Salgadinhos">
                     <div class="produtos-card-image">
                         <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=90" alt="Cento de Salgadinhos">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Cento de Salgadinhos", 280.00, "unidade")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Cento de Salgadinhos", "100 unidades variadas entre pastéis, coxinhas, empadinha e pão de queijo.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Cento de Salgadinhos</h3>
                     <p class="produtos-card-category">Kits</p>
                     <p class="produtos-card-description">100 unidades variadas entre pastéis, coxinhas, empadinha e pão de queijo.</p>
-                    <p class="produtos-card-price">R$ 280,00</p>
                 </div>
 
                 <div class="produtos-card" data-category="kits" data-name="Kit Promocional Eventos">
                     <div class="produtos-card-image">
                         <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=90" alt="Kit Promocional Eventos">
                         <div class="produtos-card-overlay">
-                            <button class="produtos-btn-cart" onclick='addToCart("Kit Promocional Eventos", 1200.00, "unidade")'>ADICIONAR AO CARRINHO</button>
+                            <button class="produtos-btn-cart" onclick='addToCart("Kit Promocional Eventos", "Pacote personalizado com salgados gourmet e doces sofisticados para eventos corporativos.")'>ADICIONAR AO CARRINHO</button>
                         </div>
                     </div>
                     <h3>Kit Promocional Eventos</h3>
                     <p class="produtos-card-category">Kits</p>
                     <p class="produtos-card-description">Pacote personalizado com salgados gourmet e doces sofisticados para eventos corporativos.</p>
-                    <p class="produtos-card-price">R$ 1.200,00</p>
                 </div>
             </div>
             
@@ -466,10 +387,8 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-section">
-                <!--<h3>BOsCATTO</h3>-->
                 <a href="/" class="logo">
                     <img src="/assets/images/LOGO-WIDE-WT-MINIMALIST.png" alt="Bocatto Logo">
-                    <!--<span class="logo-re-wt">&reg;</span> REGISTRO JA NOTIFICADO NO HEADER -->
                 </a>
                 <p>A arte e a tradição da confeitaria.</p>
             </div>

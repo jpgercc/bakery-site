@@ -29,7 +29,7 @@ Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comp
 - [ ] Adicionar restante das tortas do novo cardapio que a mano mandou  (/assets/images/tortas/CATALOGO TORTAS), fotos das tortas no whats da Manô (produtos)
 
 
-- [ ] Retirar valores e quantidades(unidades e gramas) dos produtos (produtos)
+- [x] Retirar valores e quantidades(unidades e gramas) dos produtos (produtos)
 
 <h2>A FAZER (Finalização)</h2>
 
