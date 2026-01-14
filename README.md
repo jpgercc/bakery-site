@@ -5,7 +5,23 @@ Juan comprou o dominio: confeitariabocatto.com.br
 
 Verdadeiro index está na pasta .TEMP
 
-<h2>A FAZER</h2>
+<h2>A FAZER (Sprint)</h2>
+
+
+- [ ] Colocar algo sobre aniversario de 40 anos da Bocatto, 40 anos de historia(index#sobrenos)
+
+- [ ] Trocar “Desde 1986, …” por “Tradição e bom gosto desde 1986” (index)
+
+- [ ] Tirar section 'o que esperar' da aba (eventos)
+
+
+- [ ] Tirar gelatto do menu  (produtos)
+
+- [ ] Adicionar restante das tortas do novo cardapio que a mano mandou  (produtos)
+
+- [ ] Retirar valores dos produtos (produtos)
+
+<h2>A FAZER (Finalização)</h2>
 
 - [ ] 1o Terminar o site 100%
 - [ ] 2o Adicionar meta tags para SEO, robots.txt, sitemap.xml, conferir alt txt, Gerar Open Graph Tags, definir cannonical tag no proprio html (<link rel="canonical" href="https://www.confeitariabocatto.com.br/" />)
