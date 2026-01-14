@@ -16,7 +16,7 @@ Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comp
 - [ ] Trocar a foto 'Experiencia Bocatto' (.TEMP/CONTEXTO-CLIENTE/*foto não recebida)
 
 - [x] Otimizar imagens de alguma maneira, ex.: adicionando lazy loading
-- [ ] lazy load parece nao ter feito efeito suficiente, provavelmente pela imagem ser muito grande, tentar mudar o formato da imagem para otimizar OU adicionar uma tela overlay de loading... na pagina para mostrar a pagina apos carregar as imagens
+- [ ] lazy load parece nao ter feito efeito suficiente, provavelmente pela imagem ser muito grande, tentar mudar o formato da imagem para otimizar OU adicionar uma tela overlay de loading... na pagina para mostrar a pagina apos carregar as imagens, CSS tambem demora a carregar, provavelmente é por ter MUITAS imagens e imagens grandes e pesadas.
 
 - [x] Adicionar descrição das tortas !!! Ver no novo cardapio que a mano mandou  (/assets/images/tortas/CATALOGO TORTAS)(produtos)
 
