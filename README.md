@@ -20,7 +20,7 @@ Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comp
 
 - [x] Trocar “Desde 1986, …” por “Tradição e bom gosto desde 1986” (index)
 
-- [ ] Tirar section 'o que esperar' da aba (eventos)
+- [x] Tirar section 'o que esperar' da aba (eventos)
 
 <br>
 
