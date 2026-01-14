@@ -24,7 +24,7 @@ Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comp
 
 <br>
 
-- [ ] Tirar gelatto do menu  (produtos)
+- [x] Tirar gelatto do menu  (produtos)
 
 - [ ] Adicionar restante das tortas do novo cardapio que a mano mandou  (.TEMP/CONTEXTO-CLIENTE/Catálogo BOCATTO 2025 NEW) (produtos)
 
