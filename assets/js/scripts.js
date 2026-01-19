@@ -254,9 +254,10 @@ function initProductsFilters() {
         products.forEach(product => {
             const category = product.getAttribute('data-category');
             const name = product.getAttribute('data-name').toLowerCase();
+            const description = (product.getAttribute('data-description') || '').toLowerCase();
             
             const categoryMatch = currentCategory === 'todos' || category === currentCategory;
-            const searchMatch = name.includes(searchTerm);
+            const searchMatch = name.includes(searchTerm) || description.includes(searchTerm);
             
             if (categoryMatch && searchMatch) {
                 product.style.display = 'block';
