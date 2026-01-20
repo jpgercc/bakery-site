@@ -1,5 +1,67 @@
 # BOCATTO
 
+*Não tem no cardapio, apenas fotos das tortas: Moka,
+
+Parei de adicionar descrição no Item 32 = Laka no carapio (Catálogo DESCRICAO.pdf + produtos/index.html)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <a href='https://juan-bocatto.vercel.app/'>VERCEL SERVER</a>
 Juan comprou o dominio: confeitariabocatto.com.br
 
@@ -13,7 +75,6 @@ Desde sua fundação, a Bocatto segue sendo um negócio familiar, guiado pelos m
 Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comprometidos em oferecer experiências que unem sabor, elegância e acolhimento — criando memórias que permanecem.
 </details> 
 
-*Não tem no cardapio, apenas fotos das tortas: Moka,
 
 - [ ] Trocar a foto 'Experiencia Bocatto' (.TEMP/CONTEXTO-CLIENTE/*foto não recebida)
 
