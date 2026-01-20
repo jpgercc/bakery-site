@@ -13,6 +13,8 @@ Desde sua fundação, a Bocatto segue sendo um negócio familiar, guiado pelos m
 Acreditamos que tradição e inovação caminham juntas. Por isso, seguimos comprometidos em oferecer experiências que unem sabor, elegância e acolhimento — criando memórias que permanecem.
 </details> 
 
+*tortas comentadas em produtos porque nao contem no cardapio indicado.
+
 - [ ] Trocar a foto 'Experiencia Bocatto' (.TEMP/CONTEXTO-CLIENTE/*foto não recebida)
 
 - [x] Otimizar imagens de alguma maneira, ex.: adicionando lazy loading
