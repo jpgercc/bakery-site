@@ -1,15 +1,8 @@
 # BOCATTO
 
-*Não tem no cardapio, apenas fotos das tortas: Moka,
+Nem todo  <div class="produtos-card"  tem description
 
-Parei de adicionar descrição no Item 32 = Laka no carapio (Catálogo DESCRICAO.pdf + produtos/index.html)
-
-
-
-
-
-
-
+Conferir e ordernar cardapio
 
 
 

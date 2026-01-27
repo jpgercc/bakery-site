@@ -67,10 +67,10 @@ function updateCart() {
     cartFooter.style.display = 'block';
     
     cartItemsContainer.innerHTML = cart.map((item, index) => {
-        // Limitar descrição a 100 caracteres
+        // Limitar descrição a 300 caracteres
         const description = item.description || '';
-        const truncatedDescription = description.length > 100 
-            ? description.substring(0, 100) + '...' 
+        const truncatedDescription = description.length > 300 
+            ? description.substring(0, 300) + '...' 
             : description;
 
         return `
