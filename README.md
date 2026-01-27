@@ -2,14 +2,11 @@
 
 Nem todo  <div class="produtos-card"  tem description
 
-Conferir e ordernar cardapio
+0. Conferir e ordernar cardapio
 
+1. as 4 primeiras imagens tevem ter loading eager inves de lazy (conferir se o conceito é aceitavel)
 
-
-1. Melhorar o carregamento das imagens
-
-2. as 4 primeiras imagens tevem ter loading eager inves de lazy (conferir se o conceito é aceitavel)
-
+2.  Melhorar o carregamento das imagens
 
 3. *client ask: conferir se querem definir melhor as categorias, o que vai em doces? afinal tudo é doce.
 
