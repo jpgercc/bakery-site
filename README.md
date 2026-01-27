@@ -6,8 +6,9 @@ Conferir e ordernar cardapio
 
 
 
+Melhorar o carregamento das imagens
 
-
+as 4 primeiras imagens tevem ter loading eager inves de lazy (conferir se o conceito é aceitavel)
 
 
 
