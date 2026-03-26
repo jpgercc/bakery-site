@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua_Empresa</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+    <link rel="apple-touch-icon" href="/assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo2.png">
+</head>
+<body class="body">
+    <!-- Header with Navigation -->
+    <header id="navbar" class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/assets/images/LOGO-WIDE-BLK-MINIMALIST.png" alt="Sua_Empresa Logo" loading="eager">
+                <span class="logo-reg">&reg;</span>
+            </a>
+            <nav class="nav-links-wrapper">
+                <ul class="nav-links">
+                    <li><a href="/produtos/">MENU</a></li>
+                    <li><a href="#servicos">SERVIÇOS</a></li>
+                    <li><a href="/eventos/">EVENTOS</a></li>
+                    <li><a href="#sobrenos">SOBRE NÓS</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <div class="cart-icon-wrapper" onclick="toggleCart()">
+                    <svg class="cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </div>
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="/produtos/" onclick="toggleMenu()">MENU</a></li>
+            <li><a href="#servicos" onclick="toggleMenu()">SERVIÇOS</a></li>
+            <li><a href="/eventos/" onclick="toggleMenu()">EVENTOS</a></li>
+            <li><a href="#sobrenos" onclick="toggleMenu()">SOBRE NÓS</a></li>
+        </ul>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h2>Meu Carrinho</h2>
+                <button class="cart-close-btn" onclick="toggleCart()">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be inserted here -->
+            </div>
+            
+            <div class="cart-empty" id="cartEmpty">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+                <p>Seu carrinho está vazio</p>
+            </div>
+            
+            <div class="cart-footer" id="cartFooter">
+                <div class="cart-total">
+                    <span>Total Estimado:</span>
+                    <span id="cartTotalPrice">R$ 0,00</span>
+                </div>
+                <button class="cart-checkout-btn" onclick="finalizarCompra()">
+                    FINALIZAR COMPRA
+                </button>
+            </div>
+        </div>
+    </div>
+    <main>
+        <!-- Hero Carousel -->
+        <section class="hero" aria-label="Hero carousel">
+            <div class="hero-slide active">
+                <img src="/assets/images/unsplash/gelatoheroindex.jpg" alt="Gelatos" loading="eager">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-slide">
+                <img src="/assets/images/unsplash/tartaheroindex.jpg" alt="Pastries" loading="lazy">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-slide">
+                <img src="/assets/images/unsplash/tortasindex.jpg" alt="Salgados"  loading="lazy>
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="hero-content">
+                <h1>A Arte da Confeitaria</h1>
+                <p>Tradição e bom gosto desde 1986</p>
+                <p>Criando um <i>bocado</i> de momentos deliciosos.</p>
+                </div>
+                <a href="/produtos/" class="btn-primary">MENU</a>
+            </div>
+
+            <div class="carousel-indicators" role="tablist" aria-label="Carousel indicators">
+                <button class="indicator active" onclick="goToSlide(0)" role="tab" aria-selected="true"></button>
+                <button class="indicator" onclick="goToSlide(1)" role="tab" aria-selected="false"></button>
+                <button class="indicator" onclick="goToSlide(2)" role="tab" aria-selected="false"></button>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="section" id="menu">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nossas Criações</h2>
+                    <div class="divider"></div>
+                    <p>Cada criação é uma obra-prima, elaborada com ingredientes nobres e técnicas familiares.</p>
+                </div>
+
+                <div class="grid">
+                    <a href="/produtos/" class="collection-card">
+                        <div class="collection-image">
+                            <img src="/assets/images/unsplash/gelatoindex.jpg" alt="Gelatos" loading="lazy">
+                            <div class="collection-overlay">
+                                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Gelatos</h3>
+                        <p>Se delicie com nossos gelatos refrescantes</p>
+                    </a>
+
+                    <a href="/produtos/" class="collection-card">
+                        <div class="collection-image">
+                            <img src="/assets/images/unsplash/tortasindex.jpg" alt="Tortas" loading="lazy">
+                            <div class="collection-overlay">
+                                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Tortas Artesanais</h3>
+                        <p>Criações refinadas de diversos sabores </p>
+                    </a>
+
+                    <a href="/produtos/" class="collection-card">
+                        <div class="collection-image">
+                            <img src="/assets/images/unsplash/salgadoindex.jpg" alt="Padaria" loading="lazy">
+                            <div class="collection-overlay">
+                                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Salgados e Panificados</h3>
+                        <p>Pães e salgados da melhor qualidade</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section experience" id="salon">
+            <div class="container">
+                <div class="experience-grid">
+                    <div class="experience-image">
+                        <img src="/assets/images/LOGO-ROUND-BRONW.jpeg" alt="Sua_Empresa Logo" loading="lazy">
+                    </div>
+                    <div class="experience-content">
+                        <h2>A Experiência Sua_Empresa</h2>
+                        <div class="divider" style="margin: 0 0 2rem 0;"></div>
+                        <p>
+                            Mais que uma confeitaria, a Sua_Empresa é tradição, afeto e excelência. Em 2026, celebramos 40 anos de história, marcados pela presença constante na vida e nos momentos mais especiais de nossos clientes, datas comemorativas, encontros memoráveis e celebrações que atravessam gerações.
+                        </p>
+                        <p>
+                            Desde sua fundação, a Sua_Empresa segue sendo um negócio familiar, guiado pelos mesmos valores que a originaram: cuidado artesanal, atenção aos detalhes, qualidade irrepreensível e requinte em cada criação. Ao longo dos anos, mantivemos viva nossa essência, ao mesmo tempo em que evoluímos, nos modernizamos e incorporamos novas formas de encantar, sempre com respeito à nossa identidade.
+                        </p>
+                        <button class="btn-secondary">ENTRE EM CONTATO</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section services" id="servicos">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Serviços Exclusivos</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                            </svg>
+                        </div>
+                        <h3>Kits Tradicionais</h3>
+                        <p>Caixas personalizadas para celebrar momentos especiais com distinção</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Valores Especiais para Eventos</h3>
+                        <p>Condições especiais para tornar seus eventos ainda mais doces e memoráveis</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                            </svg>
+                        </div>
+                        <h3>Tele-Entrega</h3>
+                        <p>Levamos a excelência Sua_Empresa para o local de sua escolha</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Heritage Banner -->
+        <section class="heritage" id="sobrenos">
+            <img src="/assets/images/unsplash/historiaindex.jpg" alt="Baker Table" loading="lazy">
+            <div class="heritage-overlay">
+                <div class="heritage-content">
+                    <p>DESDE 1986, 40 ANOS DE HISTÓRIA</p>
+                    <h2>Tradição e Excelência</h2>
+                    <p>Sua_Empresa representa o encontro entre tradição familiar e inovação contemporânea, mantendo viva a verdadeira arte da confeitaria.</p>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <a href="/" class="logo">
+                    <img src="/assets/images/LOGO-WIDE-WT-MINIMALIST.png" alt="Sua_Empresa Logo">
+                </a>
+                <p>A arte e a tradição da confeitaria.</p>
+            </div>
+            <div class="footer-section">
+                <h4>MENU</h4>
+                <ul>
+                    <li><a href="#">Macarons</a></li>
+                    <li><a href="#">Chocolates</a></li>
+                    <li><a href="#">Pâtisserie</a></li>
+                    <li><a href="#">Chás</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>SERVIÇOS</h4>
+                <ul>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Catering</a></li>
+                    <li><a href="#">Presentes</a></li>
+                    <li><a href="#">Reservas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>CONTATO</h4>
+                <ul>
+                    <li>Rua da Sua Empresa, 101</li>
+                    <li>Sua Cidade - SP</li>
+                    <li>55 0000-0000</li>
+                    <li>Sua_Empresaconfeitaria@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Sua_Empresa. Todos direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="/assets/js/scripts.js"></script>
+</body>
+</html>

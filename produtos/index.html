@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Sua_Empresa</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+    <link rel="apple-touch-icon" href="/assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo2.png">
+</head>
+<body class="body">
+    <!-- Header -->
+    <header id="navbar" class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/assets/images/LOGO-WIDE-BLK-MINIMALIST.png" alt="Sua_Empresa Logo" loading="eager">
+                <span class="logo-reg">&reg;</span>
+            </a>
+            <nav class="nav-links-wrapper">
+                <ul class="nav-links">
+                    <li><a href="/produtos/">MENU</a></li>
+                    <li><a href="/#servicos">SERVIÇOS</a></li>
+                    <li><a href="/eventos/">EVENTOS</a></li>
+                    <li><a href="/#sobrenos">SOBRE NÓS</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <div class="cart-icon-wrapper" onclick="toggleCart()">
+                    <svg class="cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </div>
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="/produtos/" onclick="toggleMenu()">MENU</a></li>
+            <li><a href="/#servicos" onclick="toggleMenu()">SERVIÇOS</a></li>
+            <li><a href="/eventos/" onclick="toggleMenu()">EVENTOS</a></li>
+            <li><a href="/#sobrenos" onclick="toggleMenu()">SOBRE NÓS</a></li>
+        </ul>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h2>Meu Carrinho</h2>
+                <button class="cart-close-btn" onclick="toggleCart()">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be inserted here -->
+            </div>
+            
+            <div class="cart-empty" id="cartEmpty">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+                <p>Seu carrinho está vazio</p>
+            </div>
+            
+            <div class="cart-footer" id="cartFooter">
+                <div class="cart-total">
+                    <span>Total de Itens:</span>
+                    <span id="cartTotalPrice">0 itens</span>
+                </div>
+                <button class="cart-checkout-btn" onclick="finalizarCompra()">
+                    FINALIZAR COMPRA
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Banner for Products Page -->
+    <section class="produtos-hero-banner">
+        <img src="/assets/images/fundo-produtos.jpg" alt="Menu" loading="eager">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Nossa Coleção</h1>
+            <p>Descubra nossa seleção de sabores exclusivos</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section" id="produtos">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="produtos-search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="produtos-search-bar" 
+                    placeholder="Buscar produtos..."
+                    onkeyup="filterProducts()"
+                >
+                <svg class="produtos-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="produtos-filters-container">
+                <button class="produtos-filter-btn active" data-filter="todos" onclick="filterByCategory('todos')">
+                    TODOS
+                </button>
+                <button class="produtos-filter-btn" data-filter="tortas" onclick="filterByCategory('tortas')">
+                    TORTAS
+                </button>
+                <button class="produtos-filter-btn" data-filter="doces" onclick="filterByCategory('doces')">
+                    DOCES
+                </button>
+                <button class="produtos-filter-btn" data-filter="salgados" onclick="filterByCategory('salgados')">
+                    SALGADOS
+                </button>
+                <button class="produtos-filter-btn" data-filter="kits" onclick="filterByCategory('kits')">
+                    KITS
+                </button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="produtos-grid" id="productsGrid">
+                <!-- Tortas -->
+                <div class="produtos-card" data-category="tortas" data-name="Laka" data-description="Merengue, cobertura de chocolate e paçoca.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/1. Laka.png" alt="Laka" loading="eager">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Laka", "Massa de chocolate, recheio doce de leite condensado e chantilly, cobertura de merengue e chocolate meio amargo ou branco.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Laka</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa de chocolate, recheio doce de leite condensado e chantilly, cobertura de merengue e chocolate meio amargo.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Novatta" data-description="Massa chocolate, recheio doce de leite condensado e morango, cobertura raspas de chocolate e morango.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/2. Novatta.png" alt="Novatta" loading="eager">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Novatta", "Massa chocolate, recheio doce de leite condensado e morango, cobertura raspas de chocolate e morango.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Novatta</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa chocolate, recheio doce de leite condensado e morango, cobertura raspas de chocolate e morango.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Alpina" data-description="Massa de chocolate, recheio doce de leite condensado, bombons, chocolate alpino (meio amargo), cobertura chocolate alpino e nozes.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/3. Alpina.png" alt="Alpina" loading="eager">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Alpina", "Massa de chocolate, recheio doce de leite condensado, bombons, chocolate alpino (meio amargo), cobertura chocolate alpino e nozes.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Alpina</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa de chocolate, recheio doce de leite condensado, bombons, chocolate alpino (meio amargo), cobertura chocolate alpino e nozes.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Negrinho e Branquinho" data-description="Massa branca ou chocolate, negrinho, bran- quinho e chantilly, cobertura merengue e chocolate. A cor do chocolate da cobertura corresponde a que tipo de massa é o bolo.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/4. Negrinho e Branquinho.png" alt="Negrinho e Branquinho" loading="eager">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Negrinho e Branquinho", "Massa branca ou chocolate, negrinho, bran- quinho e chantilly, cobertura merengue e chocolate. A cor do chocolate da cobertura corresponde a que tipo de massa é o bolo.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Negrinho e Branquinho</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca ou chocolate, negrinho, bran- quinho e chantilly, cobertura merengue e chocolate. A cor do chocolate da cobertura corresponde a que tipo de massa é o bolo.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Kitkat" data-description="Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/5. Kitkat.png" alt="Kitkat" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Kitkat", "Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Kitkat</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Marta Rocha" data-description="Massa branca e de chocolate, recheio (intercalado) doce de ovos, ameixa, pralinê de nozes, chantilly, merengada, cobertura chantilly e pralinê de nozes.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/6. Marta Rocha.png" alt="Marta Rocha" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Marta Rocha", "Massa branca e de chocolate, recheio (intercalado) doce de ovos, ameixa, pralinê de nozes, chantilly, merengada, cobertura chantilly e pralinê de nozes.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Marta Rocha</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca e de chocolate, recheio (intercalado) doce de ovos, ameixa, pralinê de nozes, chantilly, merengada, cobertura chantilly e pralinê de nozes.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Vovó" data-description="Massa branca, recheio doce de ovos, ameixa, nozes e chantilly, cobertura merengue e nozes.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Vovó.png" alt="Vovó" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Vovó", "Massa branca, recheio doce de ovos, ameixa, nozes e chantilly, cobertura merengue e nozes.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Vovó</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, recheio doce de ovos, ameixa, nozes e chantilly, cobertura merengue e nozes.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Kitty" data-description="Massa branca, recheio doce de leite e chantilly, cobertura doce de leite, nozes e fios de ovos.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/8. Kitty.png" alt="Kitty" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Kitty", "Massa branca, recheio doce de leite e chantilly, cobertura doce de leite, nozes e fios de ovos.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Kitty</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, recheio doce de leite e chantilly, cobertura doce de leite, nozes e fios de ovos.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Chajá de Morango" data-description="Massa branca, recheio chantilly e morango, cobertura chantilly, suspiros e morango.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/9. Chajá.png" alt="Chajá de Morango" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Chajá de Morango", "Massa branca, recheio chantilly e morango, cobertura chantilly, suspiros e morango.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Chajá de Morango</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, recheio chantilly e morango, cobertura chantilly, suspiros e morango.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Pecatto de Doce de Leite" data-description="Base de brownie, mousse de doce de leite, merengue e cobertura de chocolate.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/10. Pecatto de Doce de Leite.png" alt="Pecatto de Doce de Leite" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Pecatto de Doce de Leite", "Base de brownie, mousse de doce de leite, merengue e cobertura de chocolate.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Pecatto de Doce de Leite</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de brownie, mousse de doce de leite, merengue e cobertura de chocolate.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Pecatto de Laranja" data-description="Base de brownie, mousse de laranja, merengue e cobertura de chocolate.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/10. Pecatto de Laranja.png" alt="Pecatto de Laranja" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Pecatto de Laranja", "Base de brownie, mousse de laranja, merengue e cobertura de chocolate.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Pecatto de Laranja</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de brownie, mousse de laranja, merengue e cobertura de chocolate.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Real de Nozes" data-description="Pão de ló de nozes, recheio de creme a base de doce de ovos, cobertura merengue, nozes e fios de ovos.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/11. Real de Nozes.png" alt="Real de Nozes" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Real de Nozes", "Pão de ló de nozes, recheio de creme a base de doce de ovos, cobertura merengue, nozes e fios de ovos.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Real de Nozes</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Pão de ló de nozes, recheio de creme a base de doce de ovos, cobertura merengue, nozes e fios de ovos.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Amorino" data-description="Massa branca, recheio branquinho, negrinho e morango, cobertura merengue e banho de chocolate.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Amorino.png" alt="Amorino" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Amorino", "Massa branca, recheio branquinho, negrinho e morango, cobertura merengue e banho de chocolate.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Amorino</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, recheio branquinho, negrinho e morango, cobertura merengue e banho de chocolate.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Rafa" data-description="Massa branca, doce de ovos, branquinho de leite condensado e nozes, cobertura branquinho e nozes.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/13. Rafa.png" alt="Rafa" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Rafa", "Massa branca, doce de ovos, branquinho de leite condensado e nozes, cobertura branquinho e nozes.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Rafa</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, doce de ovos, branquinho de leite condensado e nozes, cobertura branquinho e nozes.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Bahiana" data-description="Massa branca, recheio de doce de ovos, coco e abacaxi, cobertura de merengue.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/14. Bahiana.png" alt="Bahiana" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Bahiana", "Massa branca, recheio de doce de ovos, coco e abacaxi, cobertura de merengue.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Bahiana</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, recheio de doce de ovos, coco e abacaxi, cobertura de merengue.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Alfajor Cordobês" data-description="Camadas de massa fininha e crocante e doce de leite (finalizado com merengue)">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Alfajor Cordobes.jpg" alt="Alfajor Cordobês" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Alfajor Cordobês", "Camadas de massa fininha e crocante e doce de leite (finalizado com merengue)")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Alfajor Cordobês</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Camadas de massa fininha e crocante e doce de leite (finalizado com merengue)</p>
+                </div>
+
+
+                <div class="produtos-card" data-category="tortas" data-name="Tropical" data-description="Massa branca, recheio de creme de leite condensado, chantilly e frutas, (morango ou pêssego ou abacaxí ou kiwi) cobertura merengue e frutas da escolha.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/16. Tropical de Morango.png" alt="Tropical" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tropical", "Massa branca, recheio de creme de leite condensado, chantilly e frutas, (morango ou pêssego ou abacaxí ou kiwi) cobertura merengue e frutas da escolha.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tropical</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, recheio de creme de leite condensado, chantilly e frutas, (morango ou pêssego ou abacaxí ou kiwi) cobertura merengue e frutas da escolha.</p>
+                </div>
+
+
+                <div class="produtos-card" data-category="tortas" data-name="Prestigio" data-description="Massa de chocolate, recheio chocolate e coco, cobertura de chocolate.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/17. Prestigio.png" alt="Prestigio" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Prestigio", "Massa de chocolate, recheio chocolate e coco, cobertura de chocolate.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Prestigio</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa de chocolate, recheio chocolate e coco, cobertura de chocolate.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Floresta Negra" data-description="Massa chocolate, recheio chantily e cerejas, cobertura chantilly com raspas de chocolate e cerejas.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Floresta Negra.png" alt="Floresta Negra" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Floresta Negra", "Massa chocolate, recheio chantily e cerejas, cobertura chantilly com raspas de chocolate e cerejas.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Floresta Negra</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa chocolate, recheio chantily e cerejas, cobertura chantilly com raspas de chocolate e cerejas.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Luiza Helena" data-description="Massa de chocolate, mousse de doce de leite, branquinho, merengada, cobertura de merengue e caramelo">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/19. Luiza Helena.png" alt="Luiza Helena" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Luiza Helena", "Massa de chocolate, mousse de doce de leite, branquinho, merengada, cobertura de merengue e caramelo")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Luiza Helena</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa de chocolate, mousse de doce de leite, branquinho, merengada, cobertura de merengue e caramelo</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Moka" data-description="Massa chocolate, creme de café, cobertura chocolate meio amargo com sabor intenso e equilibrado.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Mokaa.png" alt="Moka" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Moka", "Massa chocolate, creme de café, cobertura chocolate meio amargo com sabor intenso e equilibrado.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Moka</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa chocolate, creme de café, cobertura chocolate meio amargo com sabor intenso e equilibrado.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Delicia" data-description="Torta com massa branca, doce de leite, merengada, chantilly e pêssego (retangular).">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Delicia.jpg" alt="Delicia" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Delicia", "Torta com massa branca, doce de leite, merengada, chantilly e pêssego (retangular).")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Delicia</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Torta com massa branca, doce de leite, merengada, chantilly e pêssego (retangular).</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Lemon Pie" data-description="Base de massa amanteigada, creme de limão e merengue.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Lemon Pie (2).png" alt="Lemon Pie" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Lemon Pie", "Base de massa amanteigada, creme de limão e merengue.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Lemon Pie</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, creme de limão e merengue.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Lemon Ice" data-description="Massa branca, recheio doce de ovos e branquinho de limão, cobertura de limão.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Lemon Ice.png" alt="Lemon Ice" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Lemon Ice", "Massa branca, recheio doce de ovos e branquinho de limão, cobertura de limão.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Lemon Ice</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, recheio doce de ovos e branquinho de limão, cobertura de limão.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Nega Maluca" data-description="Massa de chocolate, recheio 3 camadas de doce de leite, cobertura chocolate e granulado.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/24. Nega Maluca.png" alt="Nega Maluca" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Nega Maluca", "Massa de chocolate, recheio 3 camadas de doce de leite, cobertura chocolate e granulado.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Nega Maluca</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa de chocolate, recheio 3 camadas de doce de leite, cobertura chocolate e granulado.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Suspiro de Chocolate" data-description="Sobremesa gelada a base de chantilly com suspiros e chocolate. SEM GLUTEM.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Suspiro de Chocolate.png" alt="Suspiro de Chocolate" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Suspiro de Chocolate", "Sobremesa gelada a base de chantilly com suspiros e chocolate. SEM GLUTEM.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Suspiro de Chocolate</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Sobremesa gelada a base de chantilly com suspiros e chocolate. SEM GLUTEM.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Suspiro de Chocolate Branco" data-description="Sobremesa gelada a base de chantilly com suspiros e chocolate branco. SEM GLUTEM.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/26. Suspiro de Chocolate Branco.png" alt="Suspiro de Chocolate Branco" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Suspiro de Chocolate Branco", "Sobremesa gelada a base de chantilly com suspiros e chocolate branco. SEM GLUTEM.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Suspiro de Chocolate Branco</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Sobremesa gelada a base de chantilly com suspiros e chocolate branco. SEM GLUTEM.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Suspiro de Doce de Leite" data-description="Sobremesa gelada a base de chantilly com suspiros e doce de leite. SEM GLUTEM.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Suspiro de Doce de Leite.png" alt="Suspiro de Doce de Leite" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Suspiro de Doce de Leite", "Sobremesa gelada a base de chantilly com suspiros e doce de leite. SEM GLUTEM.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Suspiro de Doce de Leite</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Sobremesa gelada a base de chantilly com suspiros e doce de leite. SEM GLUTEM.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Cheese Cake de Limão" data-description="Base de massa fininha amanteigada, creme de queijos e limão.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Cheese Cake de Limão.png" alt="Cheese Cake de Limão" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Cheese Cake de Limão", "Base de massa fininha amanteigada, creme de queijos e limão.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Cheese Cake de Limão</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa fininha amanteigada, creme de queijos e limão.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Cheese Cake de Frutas Vermelhas" data-description="Base de massa fininha e amanteigada, creme de quiejos e geleia artesanal de morango ou frutas vermelhas.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Cheese Cake de Frutas Vermelhas.png" alt="Cheese Cake de Frutas Vermelhas" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Cheese Cake de Frutas Vermelhas", "Base de massa fininha e amanteigada, creme de quiejos e geleia artesanal de morango ou frutas vermelhas.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Cheese Cake de Frutas Vermelhas</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa fininha e amanteigada, creme de quiejos e geleia artesanal de morango ou frutas vermelhas.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Maracujá" data-description="Base de massa fininha e amanteigada, mousse de maracujá, cobertura merengue.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Tarta de Maracujá.png" alt="Maracujá" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Maracujá", "Base de massa fininha e amanteigada, mousse de maracujá, cobertura merengue.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Maracujá</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa fininha e amanteigada, mousse de maracujá, cobertura merengue.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta de mousse de doce de leite" data-description="Base de bolachinha com chocolate, mousse de doce de leite, merengue.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Tarta de mousse de doce de leite.png" alt="Tarta de mousse de doce de leite" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarta de mousse de doce de leite", "Base de bolachinha com chocolate, mousse de doce de leite, merengue.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta de mousse de doce de leite</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de bolachinha com chocolate, mousse de doce de leite, merengue.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta de mousse doce de leite e banana caramelada" data-description="Base de bolachinha com chocolate, mousse de doce de leite, banana caramelada e merengue.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Tarta de mousse de doce de leite e banana caramelada.png" alt="Tarta de mousse doce de leite e banana caramelada" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("doce de leite", "Base de bolachinha com chocolate, mousse de doce de leite, banana caramelada e merengue.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta de mousse doce de leite e banana caramelada</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de bolachinha com chocolate, mousse de doce de leite, banana caramelada e merengue.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Orange Pie" data-description="Base de massa amanteigada, creme de laranja e merengue - média.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Orange pie.jpg" alt="Orange Pie" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Orange Pie", "Base de massa amanteigada, creme de laranja e merengue - média.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Orange Pie</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, creme de laranja e merengue - média.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Pecatto de Maracujá" data-description="Base de brownie, mousse de maracujá merengue, cobertura de chocolate.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Pecatto de Maracujá (1).png" alt="Pecatto de Maracujá" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Pecatto de Maracujá", "Base de brownie, mousse de maracujá merengue, cobertura de chocolate.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Pecatto de Maracujá</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de brownie, mousse de maracujá merengue, cobertura de chocolate.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Pecatto de Morango" data-description="Base de brownie, mousse de morango merengue, cobertura de chocolate.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Pecatto de Morango (1).png" alt="Pecatto de Morango" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Pecatto de Morango", "Base de brownie, mousse de morango merengue, cobertura de chocolate.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Pecatto de Morango</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de brownie, mousse de morango merengue, cobertura de chocolate.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Laka Branca" data-description="Massa de chocolate, recheio doce de leite condensado e chantilly, cobertura de merengue e chocolate branco.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/16. LAKA BRANCA.png" alt="Laka Branca" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Laka Branca", "Massa de chocolate, recheio doce de leite condensado e chantilly, cobertura de merengue e chocolate branco.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Laka Branca</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa de chocolate, recheio doce de leite condensado e chantilly, cobertura de merengue e chocolate branco.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Diva">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Diva.png" alt="Diva" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Diva", "Massa chocolate, ganache de chocolate, branquinho, morango e castanhas, cobertura de ganache.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Diva</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa chocolate, ganache de chocolate, branquinho, morango e castanhas, cobertura de ganache.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Suprema">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Suprema.jpg" alt="Suprema" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Suprema", "Massa de chocolate, brigadeiro, chantilly e bombons, cobertura de merengue e chocolate branco com bombons.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Suprema</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa de chocolate, brigadeiro, chantilly e bombons, cobertura de merengue e chocolate branco com bombons.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Olga">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/4. OLGA 1.png" alt="Olga" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Olga", "Massa chocolate, doce de ovos, cerejas, nozes, passas, ameixas. Cobertura fios de ovos.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Olga</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa chocolate, doce de ovos, cerejas, nozes, passas, ameixas. Cobertura fios de ovos.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Elida">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/ELIDA.png" alt="Elida" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Elida", "Base de brownie, doce de leite Chantily e merengue.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Elida</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de brownie, doce de leite Chantily e merengue.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta de primaveira">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Tarta Primavera.png" alt="Tarta de primaveira" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarta de Primaveira", "Base de massa amanteigada, creme de baunilha, frutas (morango, abacaxi, kiwi e pêssego) e gelatina.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta de Primaveira</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, creme de baunilha, frutas (morango, abacaxi, kiwi e pêssego) e gelatina.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta de Morango">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Tarta de MORANGO.png" alt="Tarta de Morango" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarta de Morango", "Base de massa amanteigada, creme de baunilha, morango e gelatina de morango.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta de Morango</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, creme de baunilha, morango e gelatina de morango.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta Sublime">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/11. TARTA SUBLIME.png" alt="Tarta Sublime" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarta Sublime", "Base de bolachinha com chocolate e recheio de chocolate gourmet.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta Sublime</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de bolachinha com chocolate e recheio de chocolate gourmet.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta Brancão">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/10. TARTA BRANCãO.png" alt="Tarta Brancão" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarta Brancão", "Base de bolachinha com chocolate e recheio de branquinho.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta Brancão</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de bolachinha com chocolate e recheio de branquinho.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta Romeu e Julieta">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/8. ROMEU & JULIETA.png" alt="Tarta Romeu e Julieta" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarta Romeu e Julieta", "Base de massa amanteigada, creme de ricota e goiabada.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta Romeu e Julieta</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, creme de ricota e goiabada.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta de Ricota e Doce de Leite">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/9. RICOTA DE LEITE.png" alt="Tarta de Ricota e Doce de Leite" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarta de Ricota e Doce de Leite", "Base de massa amanteigada, creme de ricotae doce de leite.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta de Ricota e Doce de Leite</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, creme de ricota e doce de leite.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Coco Queimado" data-description="Sobremesa de coco queimado com doce de ovos, nozes e ameixa. Cobertura com merengue. SEM GLUTEM.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Coco Queimado.png" alt="Coco Queimado" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Coco Queimado", "Sobremesa de coco queimado com doce de ovos, nozes e ameixa. Cobertura com merengue. SEM GLUTEM.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Coco Queimado</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Sobremesa de coco queimado com doce de ovos, nozes e ameixa. Cobertura com merengue. SEM GLUTEM.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Brownie de Pascoa Páscoa Chocolate">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Brownie de Páscoa Chocolate-Photoroom.png" alt="Brownie de Páscoa Chocolate" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Brownie de Páscoa Chocolate", "Brownie com recheio de branquinho, chocolate ou doce de leite.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Brownie de Páscoa Chocolate</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Brownie com recheio de branquinho, chocolate ou doce de leite.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Brownie de Pascoa Páscoa Doce de Leite">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Brownie de Páscoa Doce de Leite-Photoroom.png" alt="Brownie de Páscoa Doce de Leite" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Brownie de Páscoa Doce de Leite", "Brownie com recheio de branquinho, chocolate ou doce de leite.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Brownie de Páscoa Doce de Leite</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Brownie com recheio de branquinho, chocolate ou doce de leite.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="BROWNIE IMPERIAL CHOCOLATE">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/2. BROWNIE IMPERIAL CHCOCOLATE.png" alt="Brownie Imperial Chocolate" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Brownie Imperial Chocolate", "Massa de Brownie, ganache de chocolate e cobertura de chocolate amargo.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Brownie Imperial Chocolate</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa de Brownie, ganache de chocolate e cobertura de chocolate amargo.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Brownie Imperial de Morango">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/3. BROWNIE IMPERIAL MORANGO.png" alt="Brownie Imperial de Morango" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Brownie Imperial de Morango", "Massa de Brownie recheado com nossa deliciosa geléia artesanal de morango, ganache de chocolate e cobertura de chocolate amargo e morangos com cobertura de chocolate.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Brownie Imperial de Morango</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa de Brownie recheado com nossa deliciosa geléia artesanal de morango, ganache de chocolate e cobertura de chocolate amargo e morangos com cobertura de chocolate.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Marrasquino licor">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Marrasquino.png" alt="Marrasquino" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Marrasquino", "Base de brownie, ganache, nozes, cerejas, amendoas e licor de marrasquino.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Marrasquino</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de brownie, ganache, nozes, cerejas, amendoas e licor de marrasquino.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Gelada pionono praliné">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Gelada.png" alt="Gelada" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Gelada", "Pionono ao conhaque, mousse de baunilha, mousse de chocolate e cobertura de merengue, Pionono ao conhaque, mousse de baunilha, mousse de chocolate e cobertura de merengue, praliné de nozes e chocolate. de nozes e chocolate.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Gelada</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Pionono ao conhaque, mousse de baunilha, mousse de chocolate e cobertura de merengue, praliné de nozes e chocolate.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Rubi">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/1. RUBI.png" alt="Rubi" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Rubi", "Base amanteigada, deliciosa mousse, geléia artesanal de morangos frescos e merengue.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Rubi</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base amanteigada, deliciosa mousse, geléia artesanal de morangos frescos e merengue.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Pompadour" data-description="Base de massa fininha amanteigada, creme de queijos e limão.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Pompadour.png" alt="Pompadour" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Pompadour", "Pavê de creme de doce de leite condensado, bolachina, merengada e creme de leite.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Pompadour</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Pavê de creme de doce de leite condensado, bolachina, merengada e creme de leite.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tiramisú" data-description="Sobremesa com bolachinha champagne embebidas no café, creme de cream cheese polvilhada com cacau.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Tiramizú.png" alt="Tiramisú" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tiramisú", "Sobremesa com bolachinha champagne embebidas no café, creme de cream cheese polvilhada com cacau.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tiramisú</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Sobremesa com bolachinha champagne embebidas no café, creme de cream cheese polvilhada com cacau.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="KIT KAT BRANCO" data-description="Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/5. KIT KAT BRANCO.png" alt="KIT KAT BRANCO" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("KIT KAT BRANCO", "Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>KitKat Branco</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)</p>
+                </div>
+
+                <!--
+                <div class="produtos-card" data-category="tortas" data-name="Kitkat Branco" data-description="Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/5. Kitkat Branco.png" alt="Kitkat Branco" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Kitkat Branco", "Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Kitkat Branco</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)</p>
+                </div>
+                -->
+
+                <div class="produtos-card" data-category="tortas" data-name="KIT KAT PRETO" data-description="Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/7. KIT KAT PRETO.png" alt="KIT KAT PRETO" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("KIT KAT PRETO", "Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>KitKat Preto</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Kit Kat Intercalada" data-description="Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/6. KIT KAT INTERCALADA.png" alt="Kit Kat Intercalada" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Kit Kat Intercalada", "Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>KitKat Intercalada</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca e chocolate, recheio negrinho e branquinho e cobertura de kit kat e fita. (Escolha a cor da fita e o sabor do KitKat)</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Colchão Alemão">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Colchão Alemão.png" alt="Colchão Alemão" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Colchão Alemão", "Deliciosa combinação de sabores intensos com camadas macias e cobertura requintada.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Colchão Alemão</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Deliciosa combinação de sabores intensos com camadas macias e cobertura requintada.</p>
+                </div>
+
+                <!-- TORTAS LINHA BIANCA-->
+                <div class="produtos-card" data-category="tortas" data-name="Torta Doce de Leite e Creme de Leite  - Linha Bianca" data-description="Massa branca, creme de leite condensado e doce de leite.">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/TORTA DOCE DE LEITE & CREME DE LEITE.png" alt="Torta Doce de Leite e Creme de Leite  - Linha Bianca" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Torta Doce de Leite e Creme de Leite  - Linha Bianca", "Massa branca, creme de leite condensado e doce de leite.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Torta Doce de Leite e Creme de Leite  - Linha Bianca</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, creme de leite condensado e doce de leite.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Mousse de doce de leite e branquinho - Linha Bianca">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/TORTA DOCE DE LEITE.png" alt="Mousse de doce de leite e branquinho - Linha Bianca" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Mousse de doce de leite e branquinho - Linha Bianca", "Massa branca, branquinho e mousse de doce de leite.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Mousse de doce de leite e branquinho - Linha Bianca</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa branca, branquinho e mousse de doce de leite.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Negrinho e Branquinho - Linha Bianca" data-description="Massa Branca, negrinho e branquinho. Cobertura merengue e chocolate">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/TORTA NEGRINHO & BRANQUINHO.png" alt="TORTA NEGRINHO & BRANQUINHO" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Negrinho e Branquinho - Linha Bianca", "Massa Branca, negrinho e branquinho. Cobertura merengue e chocolate")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Negrinho e Branquinho - Linha Bianca</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Massa Branca, negrinho e branquinho. Cobertura merengue e chocolate</p>
+                </div>
+                <!-- Tortas -->
+
+                <!-- Doces -->
+                <div class="produtos-card" data-category="doces" data-name="Tarteleta Cheese Cake Morango">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/14. TARTELETA CHEESE CAKE MORANGO.png" alt="Tarteleta Cheese Cake Morango" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarteleta Cheese Cake Morango", "Base de massa amanteigada, creamcheese e nossa deliciosa géleia de morango artesanal.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarteleta Cheese Cake Morango</h3>
+                    <p class="produtos-card-category">Doces</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, creamcheese e nossa deliciosa géleia de morango artesanal.</p>
+                </div>
+
+
+                <div class="produtos-card" data-category="doces" data-name="Tarteleta cheese cake limão limao">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/13. TARTELETA CHEESE CAKE LIMAO.png" alt="Tarteleta Cheese Cake Limão" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarteleta Cheese Cake Limão", "Base de massa amanteigada, creamcheese e creme de limão.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarteleta Cheese Cake Limão</h3>
+                    <p class="produtos-card-category">Doces</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, creamcheese e creme de limão.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta de Coco com Ameixa">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Tarta de Coco com Ameixa-Photoroom.png" alt="Tarta de Coco com Ameixa" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarta de Coco com Ameixa", "Base de massa amanteigada, pure de ameixa e cocada de gemas.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta de Coco com Ameixa</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, pure de ameixa e cocada de gemas.</p>
+                </div>
+
+                <div class="produtos-card" data-category="tortas" data-name="Tarta de Coco com Doce de Leite">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/Tarta de Coco com Doce de Leite-Photoroom.png" alt="Tarta de Coco com Doce de Leite" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Tarta de Coco com Doce de Leite", "Base de massa amanteigada, doce de leite e cocada de gemas.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Tarta de Coco com Doce de Leite</h3>
+                    <p class="produtos-card-category">Tortas</p>
+                    <p class="produtos-card-description">Base de massa amanteigada, doce de leite e cocada de gemas.</p>
+                </div>
+
+                <div class="produtos-card" data-category="doces" data-name="ALFAJOR BRANCO PEQUENO">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/15. ALFAJOR BRANCO PEQUENO.png" alt="ALFAJOR BRANCO PEQUENO" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("ALFAJOR BRANCO PEQUENO", "Deliciosa combinação de sabores intensos com camadas macias e cobertura requintada.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>ALFAJOR BRANCO PEQUENO</h3>
+                    <p class="produtos-card-category">Doces</p>
+                    <p class="produtos-card-description">Deliciosa combinação de sabores intensos com camadas macias e cobertura requintada.</p>
+                </div>
+
+                <div class="produtos-card" data-category="doces" data-name="DOCE MORANGO">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/3059-DOCE INDIVIDUAL.png" alt="DOCE MORANGO" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("DOCE MORANGO", "Deliciosa combinação de sabores intensos com camadas macias e cobertura requintada.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>DOCE MORANGO</h3>
+                    <p class="produtos-card-category">Doces</p>
+                    <p class="produtos-card-description">Deliciosa combinação de sabores intensos com camadas macias e cobertura requintada.</p>
+                </div>
+
+                <div class="produtos-card" data-category="doces" data-name="MERENGUINHOS">
+                    <div class="produtos-card-image">
+                        <img src="/assets/images/produtos/17. MERENGUINHOS.png" alt="MERENGUINHOS" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("MERENGUINHOS", "Nossos deliciosos merengues.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>MERENGUINHOS</h3>
+                    <p class="produtos-card-category">Doces</p>
+                    <p class="produtos-card-description">Nossos deliciosos merengues.</p>
+                </div>
+                <!-- Doces -->
+
+                <!-- Salgados -->
+                <div class="produtos-card" data-category="salgados" data-name="Pastel de Queijo">
+                    <div class="produtos-card-image">
+                        <img src="https://img.cdndsgni.com/preview/10105909.jpg" alt="Pastel de Queijo" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Pastel de Queijo", "Massa crocante recheada com queijo meia cura derretido e temperos especiais.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Pastel de Queijo</h3>
+                    <p class="produtos-card-category">Salgados</p>
+                    <p class="produtos-card-description">Massa crocante recheada com queijo meia cura derretido e temperos especiais.</p>
+                </div>
+
+                <div class="produtos-card" data-category="salgados" data-name="Coxinha de Frango">
+                    <div class="produtos-card-image">
+                        <img src="https://media.istockphoto.com/id/2157614515/pt/foto/chicken-coxinha-a-brazilian-snack.jpg?s=612x612&w=0&k=20&c=ZhmeYxAZYt5Avde0L_YLpMREFO0f-1enzqOrz4ebFUg=" alt="Coxinha de Frango" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Coxinha de Frango", "Clássico salgado com frango desfiado, catupiry e massa macia e saborosa.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Coxinha de Frango</h3>
+                    <p class="produtos-card-category">Salgados</p>
+                    <p class="produtos-card-description">Clássico salgado com frango desfiado, catupiry e massa macia e saborosa.</p>
+                </div>
+
+                <div class="produtos-card" data-category="salgados" data-name="Pão de Queijo Artesanal">
+                    <div class="produtos-card-image">
+                        <img src="https://www.academiaassai.com.br/sites/default/files/como-fazer-pao-de-queijo-recheado.jpg" alt="Pão de Queijo Artesanal" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Pão de Queijo Artesanal", "Receita mineira tradicional com queijo meia cura e textura fofa por dentro.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Pão de Queijo Artesanal</h3>
+                    <p class="produtos-card-category">Salgados</p>
+                    <p class="produtos-card-description">Receita mineira tradicional com queijo meia cura e textura fofa por dentro.</p>
+                </div>
+
+                <div class="produtos-card" data-category="salgados" data-name="Empada de Palmito">
+                    <div class="produtos-card-image">
+                        <img src="https://portaledicase.com/wp-content/uploads/2023/09/empada-de-frango-1024x683.jpeg" alt="Empada de Palmito" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Empada de Palmito", "Salgado sofisticado com palmito fresco, queijo e temperos na massa manteiguda.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Empada de Palmito</h3>
+                    <p class="produtos-card-category">Salgados</p>
+                    <p class="produtos-card-description">Salgado sofisticado com palmito fresco, queijo e temperos na massa manteiguda.</p>
+                </div>
+                <!-- Salgados -->
+
+                <!-- Kits -->
+                <div class="produtos-card" data-category="kits" data-name="Kit Festa Pequena">
+                    <div class="produtos-card-image">
+                        <img src="https://img.criativodahora.com.br/2024/01/criativo-65b5371097b0bMjcvMDEvMjAyNCAxNGgwMg==.jpg" alt="Kit Festa Pequena" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Kit Festa Pequena", "Seleção ideal para 15-20 pessoas com variedade de salgados e doces sortidos.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Kit Festa Pequena</h3>
+                    <p class="produtos-card-category">Kits</p>
+                    <p class="produtos-card-description">Seleção ideal para 15-20 pessoas com variedade de salgados e doces sortidos.</p>
+                </div>
+
+                <div class="produtos-card" data-category="kits" data-name="Kit Festa Media">
+                    <div class="produtos-card-image">
+                        <img src="https://img.criativodahora.com.br/2024/01/criativo-65b5371097b0bMjcvMDEvMjAyNCAxNGgwMg==.jpg" alt="Kit Festa Media" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Kit Festa Média", "Completo para 30-40 pessoas com diversas opções de salgados, doces e torta.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Kit Festa Média</h3>
+                    <p class="produtos-card-category">Kits</p>
+                    <p class="produtos-card-description">Completo para 30-40 pessoas com diversas opções de salgados, doces e torta.</p>
+                </div>
+
+                <div class="produtos-card" data-category="kits" data-name="Cento de Salgadinhos">
+                    <div class="produtos-card-image">
+                        <img src="https://img.criativodahora.com.br/2024/01/criativo-65b5371097b0bMjcvMDEvMjAyNCAxNGgwMg==.jpg" alt="Cento de Salgadinhos" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Cento de Salgadinhos", "100 unidades variadas entre pastéis, coxinhas, empadinha e pão de queijo.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Cento de Salgadinhos</h3>
+                    <p class="produtos-card-category">Kits</p>
+                    <p class="produtos-card-description">100 unidades variadas entre pastéis, coxinhas, empadinha e pão de queijo.</p>
+                </div>
+
+                <div class="produtos-card" data-category="kits" data-name="Kit Promocional Eventos">
+                    <div class="produtos-card-image">
+                        <img src="https://img.criativodahora.com.br/2024/01/criativo-65b5371097b0bMjcvMDEvMjAyNCAxNGgwMg==.jpg" alt="Kit Promocional Eventos" loading="lazy">
+                        <div class="produtos-card-overlay">
+                            <button class="produtos-btn-cart" onclick='addToCart("Kit Promocional Eventos", "Pacote personalizado com salgados gourmet e doces sofisticados para eventos corporativos.")'>ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                    <h3>Kit Promocional Eventos</h3>
+                    <p class="produtos-card-category">Kits</p>
+                    <p class="produtos-card-description">Pacote personalizado com salgados gourmet e doces sofisticados para eventos corporativos.</p>
+                </div>
+            </div>
+            <!-- Kits -->
+            
+            <!-- No Results Message -->
+            <div id="noResults" class="produtos-no-results" style="display: none;">
+                <p>Nenhum produto encontrado. Tente uma outra busca.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <a href="/" class="logo">
+                    <img src="/assets/images/LOGO-WIDE-WT-MINIMALIST.png" alt="Sua_Empresa Logo">
+                </a>
+                <p>A arte e a tradição da confeitaria.</p>
+            </div>
+            <div class="footer-section">
+                <h4>MENU</h4>
+                <ul>
+                    <li><a href="#">Macarons</a></li>
+                    <li><a href="#">Chocolates</a></li>
+                    <li><a href="#">Pâtisserie</a></li>
+                    <li><a href="#">Chás</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>SERVIÇOS</h4>
+                <ul>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Catering</a></li>
+                    <li><a href="#">Presentes</a></li>
+                    <li><a href="#">Reservas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>CONTATO</h4>
+                <ul>
+                    <li>Rua da Sua Empresa, 101</li>
+                    <li>Sua Cidade - SP</li>
+                    <li>55 0000-0000</li>
+                    <li>Sua_Empresaconfeitaria@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Sua_Empresa. Todos direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="/assets/js/scripts.js"></script>
+</body>
+</html>

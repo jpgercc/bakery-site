@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Sua_Empresa</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+    <link rel="apple-touch-icon" href="/assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo2.png">
+</head>
+<body class="body">
+    <!-- Header with Navigation -->
+    <header id="navbar" class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/assets/images/LOGO-WIDE-BLK-MINIMALIST.png" alt="Sua_Empresa Logo" loading="eager">
+                <span class="logo-reg">&reg;</span>
+            </a>
+            <nav class="nav-links-wrapper">
+                <ul class="nav-links">
+                    <li><a href="/produtos/">MENU</a></li>
+                    <li><a href="/#servicos">SERVIÇOS</a></li>
+                    <li><a href="/eventos/">EVENTOS</a></li>
+                    <li><a href="/#sobrenos">SOBRE NÓS</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <div class="cart-icon-wrapper" onclick="toggleCart()">
+                    <svg class="cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </div>
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="/produtos/" onclick="toggleMenu()">MENU</a></li>
+            <li><a href="/#servicos" onclick="toggleMenu()">SERVIÇOS</a></li>
+            <li><a href="/eventos/" onclick="toggleMenu()">EVENTOS</a></li>
+            <li><a href="/#sobrenos" onclick="toggleMenu()">SOBRE NÓS</a></li>
+        </ul>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h2>Meu Carrinho</h2>
+                <button class="cart-close-btn" onclick="toggleCart()">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be inserted here -->
+            </div>
+            
+            <div class="cart-empty" id="cartEmpty">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+                <p>Seu carrinho está vazio</p>
+            </div>
+            
+            <div class="cart-footer" id="cartFooter">
+                <div class="cart-total">
+                    <span>Total Estimado:</span>
+                    <span id="cartTotalPrice">R$ 0,00</span>
+                </div>
+                <button class="cart-checkout-btn" onclick="finalizarCompra()">
+                    FINALIZAR COMPRA VIA WHATSAPP
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="produtos-hero-banner">
+            <img src="/assets/images/unsplash/tortaeventos.jpg" alt="Evento Sua_Empresa" loading="eager">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Eventos Especiais</h1>
+                <p>Momentos únicos que celebram a arte da confeitaria</p>
+            </div>
+        </section>
+
+        <!-- Próximo Evento em Destaque -->
+        <section class="section">
+            <!--
+            <div class="container">
+                <div class="section-header">
+                    <h2>Próximo Evento</h2>
+                    <div class="divider"></div>
+                    <p>Participe de experiências gastronômicas exclusivas e gratuitas</p>
+                </div>-->
+
+                <div class="experience-grid">
+                    <div class="experience-image">
+                        <img src="/assets/images/unsplash/experienciaeventos.jpg" alt="Degustação de Gelatos" loading="eager">
+                    </div>
+                    <div class="experience-content">
+                        <h2>Tarde de Degustação de Gelatos Artesanais</h2>
+                        <p>
+                            Sábado, 14 de Dezembro • 15h às 18h
+                        </p>
+
+                        <p>Convidamos você para uma tarde especial de degustação dos nossos gelatos artesanais, incluindo sabores exclusivos desenvolvidos especialmente para este evento.</p>
+                        
+                        <p>Durante o evento, você terá a oportunidade de conhecer nosso processo de produção artesanal, descobrir os ingredientes nobres que utilizamos e degustar uma seleção especial de sabores tradicionais e contemporâneos.</p>
+
+                        <p>
+                            Entrada Gratuita<br>
+                            Vagas limitadas - Confirme sua presença
+                        </p>
+
+                        <button class="btn-secondary" onclick="window.open('https://wa.me/5532421628?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20evento%20de%20degusta%C3%A7%C3%A3o%20de%20gelatos', '_blank')">
+                            CONFIRMAR PRESENÇA
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destaques do Evento 
+        <section class="section services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>O Que Esperar</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                            </svg>
+                        </div>
+                        <h3>Degustação Exclusiva</h3>
+                        <p>Experimente sabores especiais criados exclusivamente para o evento, incluindo opções veganas e sem lactose</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h3>Bastidores da Produção</h3>
+                        <p>Conheça nosso processo artesanal e os segredos por trás de cada receita desenvolvida ao longo de décadas</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3>Ambiente Acolhedor</h3>
+                        <p>Aproveite nossa confeitaria em um horário especial, com música ambiente e toda elegância Sua_Empresa</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- Informações Adicionais -->
+        <section class="section experience">
+            <div class="container">
+                <div class="experience-grid">
+                    <div class="experience-content">
+                        <h2>Planeje Sua Visita</h2>
+                        <div class="divider"></div>
+                        
+                        <p><strong>LOCAL:<br>
+                        Sua_Empresa Confeitaria<br>
+                        Rua Conde de Porto Alegre, 376<br>
+                        Santana do Livramento - RS</p>
+
+                        <p><strong>ESTACIONAMENTO:</strong><br>
+                        Disponível nas proximidades</p>
+
+                        <p><strong>INFORMAÇÕES:</strong><br>
+                        55 3242-1628<br>
+                        Sua_Empresaconfeitaria@gmail.com</p>
+
+                        <p>
+                            Traga sua família e amigos para compartilhar este momento especial conosco!
+                        </p>
+                    </div>
+                    <div class="experience-image">
+                        <img src="/assets/images/unsplash/breadevento.jpg" alt="Confeitaria Sua_Empresa" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="heritage">
+            <img src="/assets/images/unsplash/doceevento.jpg" alt="Evento Sua_Empresa" loading="lazy">
+            <div class="heritage-overlay">
+                <div class="heritage-content">
+                    <p>ENTRADA GRATUITA</p>
+                    <h2>Reserve Seu Lugar</h2>
+                    <p>Não perca esta oportunidade de vivenciar a tradição e qualidade Sua_Empresa em um evento único e especial</p>
+                    <br>
+                    <button class="btn-primary" onclick="window.open('https://wa.me/5532421628?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20evento%20de%20degusta%C3%A7%C3%A3o%20de%20gelatos', '_blank')">
+                        CONFIRMAR VIA WHATSAPP
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <a href="/" class="logo">
+                    <img src="/assets/images/LOGO-WIDE-WT-MINIMALIST.png" alt="Sua_Empresa Logo">
+                </a>
+                <p>A arte e a tradição da confeitaria.</p>
+            </div>
+            <div class="footer-section">
+                <h4>MENU</h4>
+                <ul>
+                    <li><a href="#">Macarons</a></li>
+                    <li><a href="#">Chocolates</a></li>
+                    <li><a href="#">Pâtisserie</a></li>
+                    <li><a href="#">Chás</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>SERVIÇOS</h4>
+                <ul>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Catering</a></li>
+                    <li><a href="#">Presentes</a></li>
+                    <li><a href="#">Reservas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>CONTATO</h4>
+                <ul>
+                    <li>Rua da Sua Empresa, 101</li>
+                    <li>Sua Cidade - SP</li>
+                    <li>55 0000-0000</li>
+                    <li>Sua_Empresaconfeitaria@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Sua_Empresa. Todos direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="/assets/js/scripts.js"></script>
+</body>
+</html>
