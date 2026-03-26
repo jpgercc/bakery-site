@@ -1,4 +1,4 @@
-# bakery-SITE
+# bakery-site
 
 ## Purpose
 A static promotional experience for an artisanal confectionery, built to highlight curated menu items, services, and special events with a minimal single-page flow. The landing page (`index.html:1`) blends a hero carousel, collection highlights, and contact-focused footer copy to guide visitors toward the menu and events sections.
