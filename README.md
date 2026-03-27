@@ -1,7 +1,7 @@
 # bakery-site
 
 ## Purpose
-A static promotional experience for an artisanal confectionery, built to highlight curated menu items, services, and special events with a minimal single-page flow. The landing page (`index.html:1`) blends a hero carousel, collection highlights, and contact-focused footer copy to guide visitors toward the menu and events sections.
+A static client's website for an artisanal confectionery, built to highlight curated menu items, services, and special events with a minimal single-page flow. The landing page (`index.html:1`) blends a hero carousel, collection highlights, and contact-focused footer copy to guide visitors toward the menu and events sections.
 
 ## Requirements
 - Modern browsers with JavaScript and DOM capabilities so the shared script (`assets/js/scripts.js:1`) can manage the carousel, filters, and cart interactions.
